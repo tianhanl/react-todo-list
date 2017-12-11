@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import './components/TodoList';
+import TodoList from './components/TodoList';
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
       <div className="App">
@@ -10,9 +12,12 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <TodoList
+          todos={[{ text: 'test string', id: 123, completed: true }]}
+          onTodoClick={(id) => {
+          console.log(id);
+        }}
+        />
       </div>
     );
   }
