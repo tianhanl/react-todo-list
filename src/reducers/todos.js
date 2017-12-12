@@ -1,26 +1,21 @@
-const ADD_TODO = 'ADD_TODO';
-const TOGGLE_TODO = 'TOGGLE_TODO';
-
+// use es6 default parameter to provide initial state
+import { typeList } from '../actions/index';
 const todos = (state = [], action) => {
   switch (action.type) {
-    case ADD_TODO:
+    case typeList.ADD_TODO:
       return [
         ...state,
         {
           id: action.id,
           text: action.text,
-          completed: false,
-        },
+          completed: false
+        }
       ];
-    case TOGGLE_TODO:
-    return state.map(todo => {
-      if (todo.id === action.id) {
-        ...todo, completed: !todo.completed}
-      } else{
-         return todo;
-      }
-    })
-
+    case typeList.TOGGLE_TODO:
+      return state.map(
+        todo =>
+          todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
+      );
     default:
       return state;
   }

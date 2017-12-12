@@ -6,17 +6,14 @@ import React from 'react';
   should be able to click them to toggle the component.
  */
 
-class Todo extends React.Component {
-  render() {
-    return (
-      <li
-        style={{ textDecoration: this.props.completed ? 'line-through' : 'none' }}
-        onClick={this.props.onClick}
-      >
-        {this.props.text};
-      </li>
-    );
-  }
-}
+
+const Todo = ({completed, onClick, text}) => (
+  <li
+    style={{ textDecoration: completed? 'line-through' : 'none' }}
+    onClick={onClick}
+  >
+    {text};
+  </li>
+);
 
 export default Todo;

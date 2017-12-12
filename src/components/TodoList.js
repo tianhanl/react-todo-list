@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import Todo from './Todo';
 
@@ -9,8 +10,8 @@ const TodoList = ({ todos, onTodoClick }) => (
         {...todo}
         onClick={() => onTodoClick(todo.id)}
       />
-    ))}
+      ))}
   </ul>
 );
 
-export default  TodoList;
+export default TodoList;
